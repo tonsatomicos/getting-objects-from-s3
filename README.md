@@ -5,7 +5,7 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=N/A&color=GREEN&style=for-the-badge"/>
 </p>
 
-Este projeto consiste na criação de uma solução em Python para gerenciar objetos no Amazon S3, utilizando a biblioteca Botocore. A solução foi projetada para baixar objetos do S3 para a máquina local e, em seguida, remover esses objetos do S3. Antes de realizar o download, o script verifica se o objeto já existe em uma pasta de objetos processados, como parte de um processo separado de ETL. Se o objeto já tiver sido processado, não será baixado novamente e será removido do S3. Caso contrário, o objeto será baixado e, em seguida, removido do S3, oferecendo um gerenciamento eficiente e simplificado.
+Este projeto consiste na criação de uma solução em Python para gerenciar objetos no Amazon S3, utilizando a biblioteca Botocore. A solução foi projetada para baixar objetos do S3 e, em seguida, remover esses objetos do S3. Antes de realizar o download, o script verifica se o objeto já existe em uma pasta de objetos processados, como parte de um processo separado de ETL. Se o objeto já tiver sido processado, não será baixado novamente e será removido do S3. Caso contrário, o objeto será baixado e, em seguida, removido do S3, oferecendo um gerenciamento eficiente e simplificado.
 
 ## Diagrama de Fluxo
 
