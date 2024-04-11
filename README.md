@@ -52,6 +52,7 @@ aws_secret_access_key=secret_access_key</code></pre>
 - Configure as variáveis: <pre><code>bucket_name=nome_do_bucket
 path_to_search=caminho_do_objeto/nomeclatura_do_objeto
 local_base_path=pasta_local</code></pre>
+- Configure a região na função <code>get_session</code> existente no script.
 
 ### Conclusão
 
