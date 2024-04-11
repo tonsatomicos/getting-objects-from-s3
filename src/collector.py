@@ -4,10 +4,11 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
+
 class Collector:
     def __init__(self, aws_access_key_id, aws_secret_access_key):
         self.aws_access_key_id = aws_access_key_id
-        self.aws_secret_access_key= aws_secret_access_key
+        self.aws_secret_access_key = aws_secret_access_key
         self.client = None
 
     def get_session(self):
@@ -15,9 +16,9 @@ class Collector:
             session = botocore.session.get_session()
             self.client = session.create_client(
                 's3', 
-                region_name='us-east-2', 
-                aws_access_key_id= self.aws_access_key_id, 
-                aws_secret_access_key= self.aws_secret_access_key
+                region_name = 'us-east-2' 
+                aws_access_key_id = self.aws_access_key_id, 
+                aws_secret_access_key = self.aws_secret_access_key
             )
 
         except Exception as e:
@@ -34,7 +35,7 @@ class Collector:
                 for s3_object in response['Contents']:
                     filename = s3_object['Key']
                     local_file_path = Path(Path(local_base_path, "raw"), os.path.basename(filename))
-                    processed_folder =  Path(Path(local_base_path, "processed"), os.path.basename(filename))
+                    processed_folder = Path(Path(local_base_path, "processed"), os.path.basename(filename))
 
                     if not processed_folder.is_file():
                         try:
@@ -63,11 +64,12 @@ class Collector:
                 self.client.close()
                 self.client = None
 
+
 def main():
     # Env
     dotenv_path = "C://Tecnology//Projects//getting-objects-from-s3//config//.env"
     load_dotenv(dotenv_path)
-    
+
     # Collector class configs
     aws_access_key_id = os.getenv("aws_access_key_id")
     aws_secret_access_key = os.getenv("aws_secret_access_key")
