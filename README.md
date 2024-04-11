@@ -5,7 +5,7 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=N/A&color=GREEN&style=for-the-badge"/>
 </p>
 
-Este projeto consiste na criação de uma solução em Python para gerenciar objetos no Amazon S3, utilizando a biblioteca Botocore. Ele permite extrair e deletar objetos de forma automatizada na nuvem da AWS, oferecendo uma gestão eficiente e simplificada.
+Este projeto consiste na criação de uma solução em Python para gerenciar objetos no Amazon S3, utilizando a biblioteca Botocore. A solução foi projetada para baixar objetos do S3 para a máquina local e, em seguida, remover esses objetos do S3. Antes de realizar o download, o sistema verifica se o objeto já existe em uma pasta de objetos processados, como parte de um processo separado de ETL. Se o objeto já tiver sido processado, não será baixado novamente e será removido do S3. Caso contrário, o objeto será baixado e, em seguida, removido do S3, oferecendo um gerenciamento eficiente e simplificado.
 
 ## Diagrama de Fluxo
 
@@ -48,7 +48,20 @@ pip install botocore python-dotenv
 - Baixe o <code>Acess Keys</code> no Security Credentials.
 - Crie um arquivo <code>.env</code> na pasta <code>config</code> e salve nele a seguinte linha: <pre><code>aws_access_key_id=acess_key 
 aws_secret_access_key=secret_access_key</code></pre>
-- Substitua o <code>acess_key e o secret_access_key</code> pelos IDs existentes no arquivo de Acess Keys baixado anteriormente.
+- Substitua o <code>acess_key</code> e o <code>secret_access_key</code> pelos IDs existentes no arquivo de <code>Acess Keys</code> baixado anteriormente.
 - Configure as variáveis: <pre><code>bucket_name=nome_do_bucket
-path_to_search=caminho_do_objeto/nomeclatura
-local_base_path=pasta_local_data</code></pre>
+path_to_search=caminho_do_objeto/nomeclatura_do_objeto
+local_base_path=pasta_local</code></pre>
+
+### Conclusão
+
+Após seguir esses passos, você estará pronto para automatizar o download e remoção dos objetos no S3.
+
+## Considerações Finais
+
+- A documentação pode não estar tão detalhada; talvez seja necessário um certo nível de conhecimento para adaptar o código.
+- Este projeto representa uma refatoração de um script que desenvolvi na empresa onde trabalho atualmente, o MagaluBank. Enfrentamos "desafios" ao tentar baixar vários objetos usando o boto3, o que me levou a optar pelo botocore. 
+
+<hr>
+
+![Image](https://i.imgur.com/p4vnGAN.gif)
