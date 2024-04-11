@@ -60,8 +60,8 @@ Após seguir esses passos, você estará pronto para automatizar o download e re
 
 ## Considerações Finais
 
-- A documentação pode não estar tão detalhada; talvez seja necessário um certo nível de conhecimento para adaptar o código.
-- Disponibilizado dois arquivos para teste, na pasta <code>data/input</code>, se quiser.
+- A documentação pode não estar tão detalhada, talvez seja necessário um certo nível de conhecimento para adaptar o código.
+- Estão disponíveis dois arquivos de teste na pasta <code>data/input</code>, caso queira utilizá-los.
 - Este projeto representa uma refatoração de um script que desenvolvi na empresa onde trabalho atualmente, o MagaluBank. Enfrentamos "desafios" ao tentar baixar vários objetos usando o boto3, o que me levou a optar pelo botocore. 
 
 <hr>
