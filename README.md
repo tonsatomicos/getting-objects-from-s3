@@ -9,7 +9,7 @@ Este projeto consiste na criação de uma solução em Python para gerenciar obj
 
 ## Diagrama de Fluxo
 
-![Diagram](https://github.com/tonsatomicos/dpp-duckdb-processing-persistence/blob/main/assets/diagram_pipeline.png?raw=true)
+![Diagram](https://github.com/tonsatomicos/getting-objects-from-s3/blob/main/assets/diagram_pipeline.png?raw=true)
 
 Sinta-se à vontade para clonar, adaptar e ajustar o projeto conforme necessário. Consulte as instruções abaixo, se precisar. :alien:
 
@@ -60,6 +60,7 @@ Após seguir esses passos, você estará pronto para automatizar o download e re
 ## Considerações Finais
 
 - A documentação pode não estar tão detalhada; talvez seja necessário um certo nível de conhecimento para adaptar o código.
+- Disponibilizado dois arquivos para teste, na pasta <code>data/input</code>, se quiser.
 - Este projeto representa uma refatoração de um script que desenvolvi na empresa onde trabalho atualmente, o MagaluBank. Enfrentamos "desafios" ao tentar baixar vários objetos usando o boto3, o que me levou a optar pelo botocore. 
 
 <hr>
