@@ -21,7 +21,7 @@ class Collector:
             )
 
         except Exception as e:
-            print(f'Failed to connection: {e}')
+            print(f"Failed to connection: {e}")
 
     def get_object(self, bucket_name, path_to_search, local_base_path):
         if not self.client:
@@ -33,8 +33,8 @@ class Collector:
             if 'Contents' in response:
                 for s3_object in response['Contents']:
                     filename = s3_object['Key']
-                    local_file_path = Path(Path(local_base_path, 'raw'), os.path.basename(filename))
-                    processed_folder =  Path(Path(local_base_path, 'processed'), os.path.basename(filename))
+                    local_file_path = Path(Path(local_base_path, "raw"), os.path.basename(filename))
+                    processed_folder =  Path(Path(local_base_path, "processed"), os.path.basename(filename))
 
                     if not processed_folder.is_file():
                         try:
@@ -44,19 +44,19 @@ class Collector:
                                 local_file.write(response['Body'].read())
                                 
                             self.client.delete_object(Bucket=bucket_name, Key=filename)
-                            print(f'Downloaded file: {filename}')
+                            print(f"Downloaded file: {filename}")
 
                         except Exception as e:
-                            print(f'Error when downloading file {filename}: {e}')
+                            print(f"Error when downloading file {filename}: {e}")
 
                     if processed_folder.is_file():
                         self.client.delete_object(Bucket=bucket_name, Key=filename)
-                        print(f'File {filename} already exists in the processing folder, deleting')
+                        print(f"File {filename} already exists in the processing folder, deleting.")
             else:
-                print('No objects were found.')
+                print("No objects were found.")
 
         except Exception as e:
-            print(f'Failed to list objects: {e}')
+            print(f"Failed to list objects: {e}")
 
         finally:
             if self.client is not None:
@@ -65,7 +65,7 @@ class Collector:
 
 def main():
     # Env
-    dotenv_path = 'C://Tecnology//Projects//getting-objects-from-s3//config//.env'
+    dotenv_path = "C://Tecnology//Projects//getting-objects-from-s3//config//.env"
     load_dotenv(dotenv_path)
     
     # Collector class configs
@@ -73,9 +73,9 @@ def main():
     aws_secret_access_key = os.getenv("aws_secret_access_key")
 
     # Collector.get_object class configs
-    bucket_name = 'projeto-github-teste'
-    path_to_search = 'arquivos_random/random'
-    local_base_path = 'C://Tecnology//Projects//getting-objects-from-s3//data'
+    bucket_name = "projeto-github-teste"
+    path_to_search = "arquivos_random/random"
+    local_base_path = "C://Tecnology//Projects//getting-objects-from-s3//data"
 
     # Collector class
     obj_collector = Collector(aws_access_key_id, aws_secret_access_key)
@@ -84,6 +84,7 @@ def main():
     #
     if obj_collector.client:
         obj_collector.get_object(bucket_name, path_to_search, local_base_path)
+
 
 if __name__ == "__main__":
     main()
