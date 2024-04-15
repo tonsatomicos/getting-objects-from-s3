@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "gettind-objects-from-s3"
+name = "getting-objects-from-s3"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
