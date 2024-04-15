@@ -43,7 +43,7 @@ poetry install
 #### Utilizando Pip
 
 ```bash
-pip install botocore python-dotenv
+pip install -r requirements.txt
 
 ```
 
